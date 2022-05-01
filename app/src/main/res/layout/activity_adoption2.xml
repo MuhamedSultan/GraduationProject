@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#C8BEBE"
+    tools:context=".Adoption2">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="#6E1414"
+        android:padding="@dimen/_9sdp"
+        android:text="Sponsor an Orphan"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold" />
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_30sdp"
+
+        android:background="@drawable/costemcard"
+            android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".Adoption2">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:text="1-Documents required for the Directorate of Social Solidarity."
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="@dimen/_290sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="🔴 family affiliation.
+\n🔴 Fish and an analogy for the spouses or the mother if she is not married.
+\n🔴 Graduation certificate photos.
+\n🔴 A letter from the employer, or proof of monthly income.
+\n🔴 Hepatitis C and drug analysis.
+\n🔴 psychological reveal .
+\n🔴 A lease or ownership agreement for an apartment.
+\n🔴 Pictures of the national ID.
+\n🔴 marriage document."
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="___________________________________________________"
+                android:textColor="#B52525"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="2-To the conditions that must be met by the incubators."
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="@dimen/_280sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="1- The religion of the family must be the same as that of the child. One of the spouses is Egyptian.\n
+\n2- That the family consists of a married couple who meet the elements of moral maturity, and they have been married for at least 3 years, and the age of each of them should not be less than 25 years and not more than 60 years.\n
+\n3- That the family requesting sponsorship or the individual has the social, psychological and health authority for care, and awareness of the needs of the child being cared for.\n
+\n4- The number of children in the family should not exceed two.\n
+\n5- That the sanitary conditions are met in the dwelling.\n
+\n6- The foster family is prohibited from handing over the child to his parents or to any person other than the Family and Childhood Administration.\n
+\n7- The family undertakes in writing to preserve the lineage of the child."
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="___________________________________________________"
+                android:textColor="#B52525"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="3-Procedures for obtaining the service."
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="@dimen/_280sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="1- A family wishing to sponsor a child according to the system of foster families applies for sponsorship on the ministry’s website https://www.moss.gov.eg/sites/mosa/ar-eg/Pages/AF-Request.aspx The requests received are recorded in a special register, and the ministry sends it to the competent directorate in which the
+ residence of the family wishing to sponsor, and the association or the competent civil institution, is located.\n
+\n2- The family and childhood specialist in the Social Administration conducts a field research to ensure that the family meets the conditions mentioned previously.\n
+\n3- A memorandum attached with the required documents and a report on her social status is prepared for submission to the local committee for alternative care headed by the Director of the Directorate of Social Affairs to decide on the matter.\n
+\n4- When the committee agrees to hand over the child to the family, it receives it either from the Maternity and Childhood Centers affiliated with the Ministry of Health and Population.\n
+\n5- Editing a care contract between the foster family and the Family and Childhood Administration at the Social Solidarity Directorate signed by 2 guarantors.
+"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="___________________________________________________"
+                android:textColor="#B52525"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="4-Documents and forms required to obtain the service."
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="@dimen/_280sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="1- A copy of the national ID card of the husband and wife.\n
+\n2- A copy of the husband’s contract (in the case of a family consisting of a husband and wife).\n
+\n3- A copy of the divorce certificate (in the case of a divorced woman).\n
+\n4- Death certificate of the husband (in case of submission by a widowed woman).\n
+\n5- The criminal status sheet of the husband and wife.\n
+\n6- A copy of the academic qualification.
+A recent health certificate proving that the applicants are free of C.B virus.\n
+\n7- All documents required to verify the accuracy of the data contained in the application, such as (the birth certificates of the children’s mechanized “if any” a statement of property, salary or pension items and other sources of income, a statement of the residence (electricity bill or copy of ownership / lease contract, copy of the national ID card of the guarantors)
+.
+"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="___________________________________________________"
+                android:textColor="#B52525"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+</LinearLayout>

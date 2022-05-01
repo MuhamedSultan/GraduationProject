@@ -1,0 +1,36 @@
+<resources>
+
+    <string name="app_name">We Care</string>
+    <string name="your_email">Your Email...</string>
+    <string name="your_password">Your Password...</string>
+    <string name="login">LOGIN</string>
+    <string name="don_t_have_an_account_create_one">Don’t have An account? Create One</string>
+    <string name="home">Home</string>
+    <string name="about">About</string>
+    <string name="events">Events</string>
+    <string name="donation">Donation</string>
+    <string name="adoption">Adoption</string>
+    <string name="recognition_by_camera">Recognition by camera</string>
+    <string name="connect_us">Connect us</string>
+    <string name="log_out">Log out</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="parents">Parents</string>
+    <string name="search">Search</string>
+    <string name="add_the_homeless">Add the homeless</string>
+    <string name="drawe_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="ok">Ok</string>
+    <string name="choose_a_path_from_3_options">choose a path from 3 options</string>
+    <string name="if_you_are_a_parent_or_close_relative_of_a_missing_child_please_fill_in_the_data_to_help_our_application_find_your_child">If you are a parent or close relative of a missing child Please fill in the data to help our application find your child</string>
+    <string name="searching_for_a_missing_child_please_upload_a_picture_of_the_child_to_help_our_site_search_for_him">Searching for a missing child... Please upload a picture of the child to help our site search for him</string>
+    <string name="you_found_a_homeless_child_in_the_street_you_must_help_us_protect_him_through_the_application_by_uploading_a_picture_of_the_child_and_taking_his_data_if_possible">You found a homeless child in the street....you must help us protect him through the application By uploading a picture of the child and taking his data if possible</string>
+    <string name="title_activity_face_recognition">Face_recognition</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>

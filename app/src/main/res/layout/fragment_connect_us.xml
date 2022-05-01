@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ContactUs">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_gravity="center"
+        android:src="@drawable/contact"
+         />
+
+    <EditText
+        android:id="@+id/userNameConnect"
+        android:layout_width="@dimen/_290sdp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/customedt"
+        android:hint="user name"
+        android:inputType="textPersonName"
+        android:padding="@dimen/_8sdp"
+        android:textColorHint="#676565"
+        android:textSize="@dimen/_15sdp" />
+
+    <EditText
+        android:id="@+id/emailConnect"
+        android:layout_width="@dimen/_290sdp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/customedt"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        android:padding="@dimen/_8sdp"
+        android:textColorHint="#676565"
+        android:textSize="@dimen/_15sdp" />
+
+    <EditText
+        android:id="@+id/phoneConnect"
+        android:layout_width="@dimen/_290sdp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/customedt"
+        android:hint="Phone"
+        android:inputType="phone"
+        android:padding="@dimen/_8sdp"
+        android:textColorHint="#676565"
+        android:textSize="@dimen/_15sdp" />
+
+    <EditText
+        android:id="@+id/messageConnect"
+        android:layout_width="@dimen/_290sdp"
+        android:layout_height="82dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/customedt"
+        android:hint="message"
+        android:inputType="text"
+        android:padding="@dimen/_8sdp"
+        android:textColorHint="#676565"
+        android:textSize="@dimen/_15sdp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submitConnect"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:background="@drawable/loginbtn"
+        android:text="Submit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15sdp" />
+
+</LinearLayout>
