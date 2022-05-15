@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.ProgressBar
+import com.google.firebase.auth.FirebaseAuth
 import java.util.*
 
 class Splash : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -38,4 +40,5 @@ class Splash : AppCompatActivity() {
         }
         t.schedule(tt, 0, 50)
     }
+
 }

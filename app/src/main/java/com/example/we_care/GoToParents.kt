@@ -29,6 +29,7 @@ class GoToParents : AppCompatActivity() {
         binding = ActivityGoToParentsBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         fileService = APIUtils.getFileService()
+
         binding!!.uploadParents.setOnClickListener {
 
             val intent = Intent(Intent.ACTION_PICK)
@@ -40,7 +41,6 @@ class GoToParents : AppCompatActivity() {
         binding!!.savedata.setOnClickListener {
 
             val file = File(imagePath)
-
             val requestBody: RequestBody =
                 RequestBody.create(MediaType.parse("multipart/form-data"), file)
 

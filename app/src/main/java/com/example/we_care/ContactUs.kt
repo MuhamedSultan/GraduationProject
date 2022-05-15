@@ -43,8 +43,7 @@ class ContactUs : Fragment() {
                 call: Call<ContactUsModel>,
                 response: Response<ContactUsModel>
             ) {
-                binding!!.userNameConnect.setText(response.code().toString())
-            }
+              }
 
             override fun onFailure(call: Call<ContactUsModel>, t: Throwable) {
                 binding!!.userNameConnect.setText(t.message)
@@ -52,15 +51,6 @@ class ContactUs : Fragment() {
 
         })
     }
-
-
-
-
-
-
-
-
-
 
         return binding!!.root
     }

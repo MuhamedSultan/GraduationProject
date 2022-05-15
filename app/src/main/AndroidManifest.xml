@@ -5,7 +5,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature
@@ -25,38 +27,36 @@
         android:allowBackup="true"
         android:icon="@drawable/fina"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/fina"
         android:supportsRtl="false"
         android:theme="@style/Theme.We_Care"
-        android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
         <activity
+            android:name="chat.ChatProfile"
+            android:exported="false"  android:parentActivityName="chat.ChatUsers"/>
+        <activity
+            android:name="chat.ChatUsers"
+            android:exported="false" />
+        <activity
             android:name=".Upload"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity android:name=".PostDataNotRecognizing" />
         <activity
             android:name=".IdentifyGetData"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true" />
         <activity android:name=".Adoption2" />
         <activity
-            android:name=".NavigitionDrawer"
-            android:exported="true">
-        </activity>
+            android:name=".NavigationDrawer"
+            android:exported="true" />
         <activity android:name=".CameraActivity2" />
         <activity android:name=".Profile" />
         <activity android:name=".GoToHomeless" />
         <activity android:name=".GoToParents" />
-
-    <activity android:name=".Donation"></activity>
+        <activity android:name=".Donation" />
         <activity
             android:name=".SignUp"
             android:exported="false" />
-
         <activity
             android:name=".Login"
             android:exported="false" />
@@ -69,10 +69,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>

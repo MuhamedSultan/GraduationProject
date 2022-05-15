@@ -102,7 +102,7 @@ public class CameraActivity2 extends Activity implements CameraBridgeViewBase.Cv
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if (!Face_recognition.Val.equals("")) {
+//                    if (!Face_recognition.Val.equals("")) {
 
                         if (Face_recognition.Val.equals("random_person")) {
                             Intent goToIdentify = new Intent(CameraActivity2.this, GoToHomeless.class);
@@ -115,7 +115,7 @@ public class CameraActivity2 extends Activity implements CameraBridgeViewBase.Cv
                             //     Toast.makeText(CameraActivity2.this, "Successful Recognition", Toast.LENGTH_SHORT).show();
                             finish();
                         }
-                    }
+                   // }
                 }
             }).start();
      //   }

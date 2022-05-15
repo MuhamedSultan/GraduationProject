@@ -2,14 +2,15 @@ package com.example.we_care
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.view.View
 import android.widget.Button
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import java.util.*
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
+
+    private val mAuth: FirebaseAuth by lazy{
+        FirebaseAuth.getInstance()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,6 +25,15 @@ class MainActivity : AppCompatActivity() {
         signupbtn.setOnClickListener {
             var intentsignup = Intent(this, SignUp::class.java)
             startActivity(intentsignup)
+        }
+    }
+    override fun onStart () {
+        super.onStart()
+        if (mAuth.currentUser?.uid != null) {
+            val intentMainActivity =
+                Intent( this,NavigationDrawer::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intentMainActivity)
         }
     }
 }

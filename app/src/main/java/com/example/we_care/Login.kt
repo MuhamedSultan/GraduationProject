@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.we_care.databinding.ActivityLoginBinding
+import com.google.firebase.auth.FirebaseAuth
 import models.Model
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,22 +25,24 @@ class Login : AppCompatActivity() {
     var binding: ActivityLoginBinding? = null
     var alertDialog: AlertDialog? = null
 
+    private val mAuth : FirebaseAuth by lazy {
+        FirebaseAuth.getInstance()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         supportActionBar?.hide()
-
+        createAccount()
         binding!!.onlogin.setOnClickListener {
             var email = binding!!.edEmail.text.toString().trim()
             var password = binding!!.edPassword.text.toString().trim()
             retrofit(email, password)
+            signIn(email,password)
         }
 
     }
-
 
     private fun retrofit(email: String, password: String) {
 
@@ -79,7 +82,7 @@ class Login : AppCompatActivity() {
 
                 } else if (apiResponse?.status_code == 200) {
 
-                    var intent = Intent(this@Login, NavigitionDrawer::class.java)
+                    var intent = Intent(this@Login, NavigationDrawer::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(intent)
                 } else {
@@ -91,12 +94,9 @@ class Login : AppCompatActivity() {
                 }
 
             }
-
-
             override fun onFailure(call: Call<Model>, t: Throwable) {
                 Toast.makeText(this@Login, t.message, Toast.LENGTH_LONG).show()
             }
-
         })
     }
 
@@ -129,6 +129,15 @@ class Login : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         alertDialog?.dismiss()
+    }
+    private fun signIn(email: String, password: String) {
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
+            if (it.isSuccessful){
+                var intent =Intent(this,NavigationDrawer::class.java)
+                startActivity(intent)
+            }
+        }
+
     }
 }
 

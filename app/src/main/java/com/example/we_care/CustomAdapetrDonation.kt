@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.recyclerdonition.view.*
+//import kotlinx.android.synthetic.main.recyclerdonition.view.*
 import java.util.*
 
 class CustomAdapetrDonation(var mylistDonation: ArrayList<userDonation>) : RecyclerView.Adapter<CustomAdapetrDonation.ViewHolder> () {
@@ -34,7 +34,7 @@ class CustomAdapetrDonation(var mylistDonation: ArrayList<userDonation>) : Recyc
         p0.textDonationnn.text = infUserLost.textDonation
         p0.userPhotoDonationnn.setImageResource (infUserLost.PhotoDonation)
 
-       p0.donationBtn.btnDonation.setOnClickListener() {
+       p0.donationBtn.setOnClickListener {
             val intent = Intent(
                 it.context,Donation::class.java
             )
@@ -50,8 +50,6 @@ class CustomAdapetrDonation(var mylistDonation: ArrayList<userDonation>) : Recyc
         val textNameHomeDonationnn = itemView.findViewById (R.id.nameDonation) as TextView
         val textDonationnn = itemView.findViewById (R.id.detailsDonation) as TextView
         val userPhotoDonationnn = itemView.findViewById (R.id.photoDonation) as ImageView
-
-
         val donationBtn : Button = itemView.findViewById(R.id.btnDonation)as Button
     }
 }
