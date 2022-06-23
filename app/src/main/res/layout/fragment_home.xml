@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#C8BEBE"
-    tools:context=".Home">
+    tools:context="fragment.Home">
 
     <ImageView
         android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.example.we_care
 
+import api.Api
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -76,7 +77,8 @@ class SignUp : AppCompatActivity(), TextWatcher {
     private fun retrofit(username: String, email: String, password: String) {
         var retrofit =
             Retrofit.Builder()
-                .baseUrl("https://grad-project3.000webhostapp.com/api/")
+                .baseUrl("https://wecare5.000webhostapp.com/api/")
+               // .baseUrl("https://grad-project3.000webhostapp.com/api/")
                 //.baseUrl("http://we-care1.herokuapp.com/api/")
                 .addConverterFactory(GsonConverterFactory.create()).build()
 

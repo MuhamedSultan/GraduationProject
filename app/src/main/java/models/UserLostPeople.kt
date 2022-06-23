@@ -1,8 +1,9 @@
 package models
 
+
 data class userLostPeople
     (
-    var userPhotoLost: Int,
+    var userPhotoLost: Long,
     var name: String,
     var age: String,
     var address: String,

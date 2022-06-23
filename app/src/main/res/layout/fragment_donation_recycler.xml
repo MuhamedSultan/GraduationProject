@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#C8BEBE"
-    tools:context=".DonationRecycler">
+    tools:context="fragment.DonationRecycler">
 
 
     <androidx.recyclerview.widget.RecyclerView

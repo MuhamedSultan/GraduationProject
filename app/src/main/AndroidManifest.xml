@@ -6,8 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature
@@ -33,19 +32,20 @@
         android:theme="@style/Theme.We_Care"
         android:usesCleartextTraffic="true">
         <activity
+            android:name="chat.ChatActivity"
+            android:exported="false" />
+        <activity
             android:name="chat.ChatProfile"
-            android:exported="false"  android:parentActivityName="chat.ChatUsers"/>
+            android:exported="false"
+             />
         <activity
             android:name="chat.ChatUsers"
             android:exported="false" />
-        <activity
-            android:name=".Upload"
-            android:exported="true" />
         <activity android:name=".PostDataNotRecognizing" />
         <activity
             android:name=".IdentifyGetData"
             android:exported="true" />
-        <activity android:name=".Adoption2" />
+        <activity android:name="fragment.Adoption2" />
         <activity
             android:name=".NavigationDrawer"
             android:exported="true" />
@@ -53,7 +53,7 @@
         <activity android:name=".Profile" />
         <activity android:name=".GoToHomeless" />
         <activity android:name=".GoToParents" />
-        <activity android:name=".Donation" />
+        <activity android:name="fragment.Donation" />
         <activity
             android:name=".SignUp"
             android:exported="false" />

@@ -1,55 +1,64 @@
 package com.example.we_care
 
+import api.Api
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.we_care.databinding.ActivityIdentifyGetDataBinding
+import models.GetChiledData
+import models.ParentModel
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
+
+
 class IdentifyGetData : AppCompatActivity() {
-    //  var binding :ActivityIdentifyGetDataBinding ?=null
+
+      var binding : ActivityIdentifyGetDataBinding?=null
+    var list :ArrayList<ParentModel>?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_identify_get_data)
-        var namePostData = findViewById<TextView>(R.id.namePostData)
-        var addressPostData = findViewById<TextView>(R.id.addressPostData)
-        var agePostData = findViewById<TextView>(R.id.agePostData)
-        var detailsPostData = findViewById<TextView>(R.id.detailsPostData)
-   //     var buttonn = findViewById<Button>(R.id.button)
-      //  buttonn.setOnClickListener {
+        binding= ActivityIdentifyGetDataBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
+        list=ArrayList()
             var retrofit =
                 Retrofit.Builder()
-                    .baseUrl("http://we-care1.herokuapp.com/api/")
-                   // .baseUrl("https://jsonplaceholder.typicode.com/")
+                    .baseUrl("https://wecare5.000webhostapp.com/api/")
+                    // .baseUrl("https://jsonplaceholder.typicode.com/")
                     .addConverterFactory(GsonConverterFactory.create()).build()
-
+        var getPersonName = Face_recognition.Val
             var apiInterface = retrofit.create(Api::class.java)
-            var getPersonName = Face_recognition.Val
-         //   var rdit = findViewById<EditText>(R.id.gett)
-         //   var get = rdit.text.toString()
-          //  var call: Call<ParentModel> = apiInterface.getHomeless(get)
-          //  var call: Call<GetChiledData> = apiInterface.getHomeless(get)
-          //  var call: Call<ParentModel> = apiInterface.getChildData()
+        var call: Call<List<ParentModel>> = apiInterface.getHomeless(getPersonName)
 
-//            call.enqueue(object : Callback<GetChiledData> {
-//                override fun onResponse(call: Call<GetChiledData>, response: Response<GetChiledData>) {
-//                  //  if (get == response.body()?.name) {
-//                        namePostData.text = response.body()?.name
-//                        addressPostData.text = response.body()?.address
-//                        agePostData.text = response.body()?.age
-//                        detailsPostData.text = response.body()?.gender
-////                   // }
-//
-////                    namePostData.setText(response.body()?.id.toString())
-////                    addressPostData.setText(response.body()?.title)
-//                }
-//
-//                override fun onFailure(call: Call<GetChiledData>, t: Throwable) {
-//                    namePostData.text = t.message.toString()
-//                }
-//
-//            })
-      //  }
+        //   var call: Call<ParentModel> = apiInterface.getHomeless(get)
+            //   var call: Call<ParentModel> = apiInterface.getChildData()
 
-    }
+            call.enqueue(object : Callback<List<ParentModel>> {
+                override fun onResponse(
+                    call: Call<List<ParentModel>>,
+                    response: Response<List<ParentModel>>
+                ) {
+                 // if (getPersonName==response.body()?.get(0)?.name){
+                    //  }else{
+                //      binding!!.namePostData.text="Nothing"
+
+                //  }
+
+//                  namePostData.setText(response.body()?.id.toString())
+//                    addressPostData.setText(response.body()?.title)
+                }
+
+                override fun onFailure(call: Call<List<ParentModel>>, t: Throwable) {
+                    binding!!.addressPostData.text=t.message
+                }
+
+            })
+        }
+    
 }

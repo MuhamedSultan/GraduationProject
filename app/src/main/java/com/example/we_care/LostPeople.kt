@@ -1,5 +1,7 @@
 package com.example.we_care
 
+import adapter.CustomAdapterLost
+import api.Api
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -38,7 +40,7 @@ class LostPeople : Fragment() {
         myArrayListLost = ArrayList()
 
         var retrofit = Retrofit.Builder()
-            .baseUrl("http://we-care1.herokuapp.com/api/")
+            .baseUrl("https://wecare5.000webhostapp.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -61,7 +63,7 @@ class LostPeople : Fragment() {
     private fun showData(myArrayListLost: List<userLostPeople>) {
 
         myRecyclerLost?.layoutManager = LinearLayoutManager(context)
-        myRecyclerLost?.adapter = CustomAdapterLost(myArrayListLost)
+        myRecyclerLost?.adapter = CustomAdapterLost(requireContext(),myArrayListLost)
         myRecyclerLost?.layoutManager = GridLayoutManager(context, 1)
     }
 }

@@ -33,7 +33,7 @@
     <TextView
         android:id="@+id/item_lastMessage_textView"
         android:layout_width="285dp"
-        android:layout_height="20dp"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/item_circle_imageView"
@@ -47,12 +47,10 @@
         android:id="@+id/item_time_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="31dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/item_name_textView"
         app:layout_constraintTop_toTopOf="@+id/item_circle_imageView"
         tools:text="@tools:sample/date/hhmm" />
 </androidx.constraintlayout.widget.ConstraintLayout>

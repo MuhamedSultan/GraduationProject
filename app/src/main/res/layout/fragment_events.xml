@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#C8BEBE"
-    tools:context=".Events">
+    tools:context="fragment.Events">
 
 
 

@@ -33,7 +33,7 @@
         <TextView
             android:id="@+id/duration"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_height="68dp"
             android:background="#AEADAD"
             android:gravity="center"
             android:text=" 45 min"
@@ -100,14 +100,14 @@
             android:text="Call:268452556" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:orientation="horizontal">
+            android:layout_width="292dp"
+            android:layout_height="44dp"
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp">
 
             <TextView
                 android:id="@+id/date"
-                android:layout_width="@dimen/_170sdp"
+                android:layout_width="202dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/_10sdp"
@@ -115,9 +115,11 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/onsignup"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:background="@drawable/loginbtn"
                 android:text="Presence"
                 android:textColor="@color/white"

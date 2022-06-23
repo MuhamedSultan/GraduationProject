@@ -52,9 +52,14 @@ class ChatProfile : AppCompatActivity() {
             window.statusBarColor = Color.WHITE
         }
             setSupportActionBar(binding!!.profileToolbar)
-            binding!!.profileToolbar.title = "Me"
-            supportActionBar?.setHomeButtonEnabled(true)
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+         //   binding!!.profileToolbar.title = "Me"
+        supportActionBar?.title=""
+        binding!!.imageViewBackFromProfile.setOnClickListener {
+            finish()
+        }
+        binding!!.TextViewProfile.text= "Me"
+          //  supportActionBar?.setHomeButtonEnabled(true)
+         //   supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         getUserInfo {
             userName = it.name
@@ -67,6 +72,7 @@ binding!!.profileUserName.text=it.name
                     .placeholder(R.drawable.person_icon)
                     .into(binding!!.circleImageView)
             }
+
         }
         binding!!.circleImageView.setOnClickListener {
             val intentImage = Intent().apply {
@@ -117,7 +123,7 @@ binding!!.profileUserName.text=it.name
             } else
 //                    (Toast.makeText( this, "Error:${it.exception?.message.toString()}", Toast.LENGTH_LONG)
 //            .show())
-                binding!!.profileUserName.setText(it.exception.toString())
+                binding!!.profileUserName.text = it.exception.toString()
 
         }
     }
@@ -127,6 +133,8 @@ binding!!.profileUserName.text=it.name
             onComplete(it.toObject(User::class.java)!!)
         }
     }
+
+
 
 }
 

@@ -1,5 +1,6 @@
 package com.example.we_care
 
+import api.Api
 import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.we_care.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_sign_up.*
 import models.Model
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,6 +26,8 @@ class Login : AppCompatActivity() {
 
     var binding: ActivityLoginBinding? = null
     var alertDialog: AlertDialog? = null
+   private lateinit var email :String
+   private lateinit var password: String
 
     private val mAuth : FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
@@ -36,12 +40,23 @@ class Login : AppCompatActivity() {
         supportActionBar?.hide()
         createAccount()
         binding!!.onlogin.setOnClickListener {
-            var email = binding!!.edEmail.text.toString().trim()
-            var password = binding!!.edPassword.text.toString().trim()
-            retrofit(email, password)
-            signIn(email,password)
-        }
+            email = binding!!.edEmail.text.toString().trim()
+            password = binding!!.edPassword.text.toString().trim()
 
+            if (email.isEmpty() && password.isEmpty()) {
+
+                    alertDialog?.dismiss()
+                binding!!.edEmail.error = "Email Required"
+                binding!!.edEmail.requestFocus()
+
+                binding!!.edPassword.error = "password Required"
+                binding!!.edPassword.requestFocus()
+            } else {
+
+                retrofit(email, password)
+                signIn(email, password)
+            }
+        }
     }
 
     private fun retrofit(email: String, password: String) {
@@ -49,7 +64,7 @@ class Login : AppCompatActivity() {
         loadingProgress()
 
         var retrofit = Retrofit.Builder()
-            .baseUrl("https://grad-project3.000webhostapp.com/api/")
+            .baseUrl("https://wecare5.000webhostapp.com/api/")
             // .baseUrl("http://we-care1.herokuapp.com/api/")
             .addConverterFactory(GsonConverterFactory.create()).build()
 
@@ -65,31 +80,21 @@ class Login : AppCompatActivity() {
 
                 var apiResponse: Model? = response.body()
 
-                val sharedPreferences = getSharedPreferences("Data", MODE_PRIVATE)
+                val sharedPreferences = getSharedPreferences("userData", MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
-                editor.putString("name", apiResponse?.name)
-                editor.putString("email", apiResponse?.email)
-                editor.apply()
+                editor.putString("userName", apiResponse?.name)
+                editor.putString("userEmail", apiResponse?.email)
+                editor.commit()
 
-                if (email.isEmpty() && password.isEmpty()) {
-
-                    alertDialog?.dismiss()
-                    binding!!.edEmail.error = "Email Required"
-                    binding!!.edEmail.requestFocus()
-
-                    binding!!.edPassword.error = "password Required"
-                    binding!!.edPassword.requestFocus()
-
-                } else if (apiResponse?.status_code == 200) {
+                 if (apiResponse?.status_code == 200) {
 
                     var intent = Intent(this@Login, NavigationDrawer::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(intent)
-                } else {
-                    alertDialog?.dismiss()
+                } else if (apiResponse?.status_code==500) {
+                     alertDialog?.dismiss()
                     Toast.makeText(this@Login, "Email or password is wrong.", Toast.LENGTH_LONG)
                         .show()
-
 
                 }
 
@@ -124,6 +129,8 @@ class Login : AppCompatActivity() {
         alertbuilder.setView(view)
         alertDialog = alertbuilder.create()
         alertDialog!!.show()
+      //  alertDialog!!.setCancelable(false)
+
     }
 
     override fun onPause() {
@@ -131,10 +138,14 @@ class Login : AppCompatActivity() {
         alertDialog?.dismiss()
     }
     private fun signIn(email: String, password: String) {
+        loadingProgress()
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
             if (it.isSuccessful){
                 var intent =Intent(this,NavigationDrawer::class.java)
                 startActivity(intent)
+            }else{
+                alertDialog?.dismiss()
+                Toast.makeText(this,it.exception.toString(),Toast.LENGTH_LONG).show()
             }
         }
 

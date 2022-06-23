@@ -1,5 +1,7 @@
 package com.example.we_care
 
+import api.APIUtils
+import api.Api
 import android.content.CursorLoader
 import android.content.Intent
 import android.database.Cursor

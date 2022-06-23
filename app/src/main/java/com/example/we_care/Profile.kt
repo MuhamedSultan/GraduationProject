@@ -51,11 +51,11 @@ class Profile : AppCompatActivity() {
 
 
         var sharedPreferences: SharedPreferences =
-            getSharedPreferences("Data", MODE_PRIVATE)
+            getSharedPreferences("userData", MODE_PRIVATE)
 
-        var userName = sharedPreferences.getString("name", "Nothing")
+        var userName = sharedPreferences.getString("userName", "Nothing")
 
-        var email = sharedPreferences.getString("email", "Nothing")
+        var email = sharedPreferences.getString("userEmail", "Nothing")
 
         binding!!.username.text = userName
         binding!!.Email.text = email

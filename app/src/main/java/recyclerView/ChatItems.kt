@@ -63,7 +63,7 @@ import kotlinx.android.synthetic.main.recycler_view_item.view.*
 //}
 
 
-class ChatItems(val user: User, val context: Context) : Item() {
+class ChatItems(val uid :String, val user: User, val context: Context) : Item() {
     private val storageInstance: FirebaseStorage by lazy{
         FirebaseStorage.getInstance()
     }

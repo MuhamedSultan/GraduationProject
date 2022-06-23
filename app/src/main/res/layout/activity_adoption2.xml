@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="#C8BEBE"
-    tools:context=".Adoption2">
+    tools:context="fragment.Adoption2">
 
     <TextView
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:context=".Adoption2">
+            tools:context="fragment.Adoption2">
 
 
             <TextView

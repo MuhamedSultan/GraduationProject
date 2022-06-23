@@ -1,7 +1,7 @@
 package models
 
 data class User(
-    // val instructor_img:Int,
+    var instructor_img:String,
     var event_time: String,
     var event_Period: String,
     var house_name: String,

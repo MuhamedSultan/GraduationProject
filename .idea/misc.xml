@@ -3,8 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/drawable/image.xml" value="0.2235" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/drawable/radiosrecycler.xml" value="0.2215" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/drawable/search_edit_text.xml" value="0.2235" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_chat.xml" value="0.2125" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_chat_profile.xml" value="0.2125" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_chat_users.xml" value="0.2125" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_identify_get_data.xml" value="0.1766304347826087" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_post_data_not_recognizing.xml" value="0.2125" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_chat.xml" value="0.2125" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/item_text_message.xml" value="0.21145833333333333" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/recycler_view_item.xml" value="0.2125" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/recyclerevent.xml" value="0.4" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/recyclerlostpeople.xml" value="0.1766304347826087" />
         <entry key="..\:/Users/TURBO/Hany/We_Care/app/src/main/res/drawable/background_chat_icons.xml" value="0.2235" />
         <entry key="..\:/Users/TURBO/Hany/We_Care/app/src/main/res/drawable/camera.xml" value="0.2235" />
         <entry key="..\:/Users/TURBO/Hany/We_Care/app/src/main/res/drawable/event.xml" value="0.2235" />

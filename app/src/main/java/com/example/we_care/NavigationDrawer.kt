@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
@@ -12,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction
 import chat.ChatUsers
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import fragment.*
 import kotlinx.android.synthetic.main.activity_navigition_drawer.*
 
 class NavigationDrawer : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
@@ -24,7 +24,7 @@ class NavigationDrawer : AppCompatActivity() , NavigationView.OnNavigationItemSe
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigition_drawer)
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, Home()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment, Home()).commit()
         navigationView.setCheckedItem(R.id.Home_navi)
         setSupportActionBar(toolBar)
         supportActionBar?.title = "Navigation View"
