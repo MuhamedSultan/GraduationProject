@@ -11,60 +11,57 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_180sdp"
+        android:layout_height="280dp"
         android:layout_gravity="center"
-        android:src="@drawable/parents"
-         />
+        android:src="@drawable/parents" />
 
     <EditText
         android:id="@+id/nameParents"
         android:layout_width="@dimen/_290sdp"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_height="48dp"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/customedt"
         android:hint="Enter the name"
         android:inputType="textPersonName"
         android:padding="@dimen/_8sdp"
         android:textColorHint="#676565"
-        android:textSize="@dimen/_15sdp"
-        />
+        android:textSize="@dimen/_15sdp" />
 
     <EditText
         android:id="@+id/ageParents"
         android:layout_width="@dimen/_290sdp"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_height="48dp"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/customedt"
         android:hint="Enter the age"
         android:inputType="number"
         android:padding="@dimen/_8sdp"
         android:textColorHint="#676565"
-        android:textSize="@dimen/_15sdp"
-        />
+        android:textSize="@dimen/_15sdp" />
 
     <EditText
         android:id="@+id/addressParents"
         android:layout_width="@dimen/_290sdp"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_height="48dp"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/customedt"
         android:hint="Enter the address"
         android:inputType="text"
         android:padding="@dimen/_8sdp"
         android:textColorHint="#676565"
-        android:textSize="@dimen/_15sdp"
-        />
+        android:textSize="@dimen/_15sdp" />
+
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/_35sdp"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="72dp"
         android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
         android:orientation="horizontal">
 
-        <EditText
+        <TextView
             android:id="@+id/photoParents"
             android:layout_width="@dimen/_220sdp"
             android:layout_height="@dimen/_35sdp"
@@ -77,47 +74,46 @@
             android:inputType="text"
             android:padding="@dimen/_8sdp"
             android:textColorHint="#676565"
-            android:textSize="@dimen/_15sdp"
-            />
+            android:textSize="@dimen/_15sdp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/uploadParents"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_weight="0.5"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
             android:background="@drawable/btn_green"
-            android:text="Upload"
+            android:text="Choose"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="@dimen/_15sdp"
-            />
+            android:textSize="@dimen/_15sdp" />
     </LinearLayout>
 
     <EditText
         android:id="@+id/detailsParents"
-        android:layout_width="@dimen/_290sdp"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_width="381dp"
+        android:layout_height="52dp"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/customedt"
         android:hint="details of the child.."
         android:inputType="text"
         android:padding="@dimen/_8sdp"
         android:textColorHint="#676565"
-        android:textSize="@dimen/_15sdp"
-        />
+        android:textSize="@dimen/_15sdp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/savedata"
         android:layout_width="@dimen/_280sdp"
         android:layout_height="@dimen/_35sdp"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_18sdp"
         android:background="@drawable/loginbtn"
         android:text="Save"
+        android:enabled="false"
         android:textColor="@color/white"
         android:textSize="@dimen/_15sdp"
         />

@@ -42,8 +42,11 @@ class CustomAdapter :
         p0.textHomelessName.text = infUser.house_name
         p0.textHomelessAddress.text = infUser.house_address
         p0.date.text = infUser.event_day
+
         Glide.with(mcontext)
-            .load(infUser.instructor_img).placeholder(R.drawable.person_icon).error(R.drawable.img)
+            .load("https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg/1200px-Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg")
+            .placeholder(R.drawable.person_icon)
+            .error(R.drawable.img)
             .into(p0.userPhoto)
 
         // p0.userPhoto.setImageResource(infUser.instructor_img)

@@ -40,17 +40,17 @@ interface Api {
     @GET("lost_peoples")
     fun getLostPeopleData(): Call<List<userLostPeople>>
 
-    @GET("lost_people/eslam1")
-    fun getChildData(): Call<ParentModel>
+//    @GET("lost_people/eslam1")
+//    fun getChildData(): Call<ParentModel>
 
     @GET("events")
      fun event(): Call<List<User>>
 
     @GET("lost_people/{name}")
-    open fun getHomeless(@Path("name") post: String): Call<List<ParentModel>>
+     fun getHomeless(@Path("name") post: String): Call<List<ParentModel>>
 
-    @GET("lost_people")
-    fun getMy(@Query("name") name: String) :Call<List<ParentModel>>
+//    @GET("lost_people")
+//    fun getMy(@Query("name") name: String) :Call<List<ParentModel>>
 
 
 //    //

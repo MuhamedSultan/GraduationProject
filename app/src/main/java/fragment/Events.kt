@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import api.APIUtils
 import api.Api
 import com.example.we_care.R
 import kotlinx.android.synthetic.main.fragment_events.*
@@ -25,6 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class Events : Fragment() {
 
     var myArrayList: ArrayList<User>? = null
+    var fileservice :Api?=null
 
     @SuppressLint("WrongConstant")
     override fun onCreateView(
@@ -41,12 +43,13 @@ class Events : Fragment() {
 
 
         myArrayList = ArrayList()
-        //
-        var retrofit = Retrofit.Builder()
-            .baseUrl("https://wecare5.000webhostapp.com/api/")
-            .addConverterFactory(GsonConverterFactory.create()).build()
-        var apiInterface = retrofit.create(Api::class.java)
-        var call: Call<List<User>> = apiInterface.event()
+
+//        var retrofit = Retrofit.Builder()
+//            .baseUrl("https://wecare5.000webhostapp.com/api/")
+//            .addConverterFactory(GsonConverterFactory.create()).build()
+//        var apiInterface = retrofit.create(Api::class.java)
+        fileservice=APIUtils.getFileService()
+        var call: Call<List<User>> = fileservice!!.event()
         call.enqueue(
             object : Callback<List<User>> {
                 override fun onResponse(

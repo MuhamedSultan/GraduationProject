@@ -15,8 +15,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import api.APIUtils
 import com.example.we_care.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import models.Model
@@ -32,6 +34,7 @@ class SignUp : AppCompatActivity(), TextWatcher {
     lateinit var email: String
     lateinit var password: String
     lateinit var confirmpassword: String
+    var fileService: Api? = null
     var alertDialog: AlertDialog? = null
 
     private val mAuth: FirebaseAuth by lazy {
@@ -75,24 +78,26 @@ class SignUp : AppCompatActivity(), TextWatcher {
 //    }
 
     private fun retrofit(username: String, email: String, password: String) {
-        var retrofit =
-            Retrofit.Builder()
-                .baseUrl("https://wecare5.000webhostapp.com/api/")
-               // .baseUrl("https://grad-project3.000webhostapp.com/api/")
-                //.baseUrl("http://we-care1.herokuapp.com/api/")
-                .addConverterFactory(GsonConverterFactory.create()).build()
-
-        var apiInterface = retrofit.create(Api::class.java)
-
+//        var retrofit =
+//            Retrofit.Builder()
+//                .baseUrl("https://wecare5.000webhostapp.com/api/")
+//               // .baseUrl("https://grad-project3.000webhostapp.com/api/")
+//                //.baseUrl("http://we-care1.herokuapp.com/api/")
+//                .addConverterFactory(GsonConverterFactory.create()).build()
+//
+//        var apiInterface = retrofit.create(Api::class.java)
+        
+        fileService=APIUtils.getFileService()
         val model = Model(username, email, password)
 
-        val call: Call<Model> = apiInterface.register(model)
+        val call: Call<Model> = fileService!!.register(model)
         call.enqueue(object : Callback<Model> {
             override fun onResponse(call: Call<Model>, response: Response<Model>) {
 
                 if (response.isSuccessful) {
                     //Toast.makeText(this@SignUp,"fdg"+response.body()?.email,Toast.LENGTH_LONG).show()
 //                       Log.d("mmresponse"+response.body()?.name,"success")
+
                     alertDialog?.dismiss()
                     if (username.isEmpty() && email.isEmpty() && password.isEmpty()) {
                         valid()
@@ -107,14 +112,10 @@ class SignUp : AppCompatActivity(), TextWatcher {
                         binding!!.password.error = "password 6 letters at least"
                         binding!!.password.requestFocus()
                     } else {
-                        val sharedPreferences = getSharedPreferences("Data", MODE_PRIVATE)
-                        val editier = sharedPreferences.edit()
-                        editier.putString("name", response.body()!!.name)
-                        editier.putString("email", response.body()!!.email)
-                        editier.apply()
-                        val intent = Intent(this@SignUp, Login::class.java)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                        startActivity(intent)
+                       sendVerification()
+//                        val intent = Intent(this@SignUp, Login::class.java)
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+//                        startActivity(intent)
                     }
                 } else if (response.body()?.status_code == 500) {
                     binding!!.username.error = "username is used by another one"
@@ -194,15 +195,33 @@ class SignUp : AppCompatActivity(), TextWatcher {
 
     private fun createUserWithEmailAndPassword(name: String, Email: String, Password: String) {
         mAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener {
-            val newUser = chat.User(name,"")
-            currentUserDocRef.set(newUser)
+            if (it.isSuccessful) {
+                sendVerification()
+                var newUser = chat.User(name, "")
+                currentUserDocRef.set(newUser)
 
-            if (!it.isSuccessful) {
+            }
+            else if (!it.isSuccessful) {
 
                 Toast.makeText(this, it.exception?.message, Toast.LENGTH_LONG).show()
 
             }
         }
+    }
+    private fun sendVerification(){
+        val user:FirebaseUser?  = FirebaseAuth.getInstance().currentUser
+        user?.reload()
+      user!!.sendEmailVerification().addOnCompleteListener {
+            if (it.isSuccessful){
+                Toast.makeText(this,"Verification Email Sent",Toast.LENGTH_LONG).show()
+                val intent = Intent(this, Login::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                startActivity(intent)
+            }
+            else if (!it.isSuccessful){
+                Toast.makeText(this,it.exception?.message,Toast.LENGTH_LONG).show()
+            }
+      }
     }
 }
 

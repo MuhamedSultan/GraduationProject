@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import api.APIUtils
 import models.userLostPeople
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,6 +25,7 @@ class LostPeople : Fragment() {
 
     var myRecyclerLost: RecyclerView? = null
     var myArrayListLost: ArrayList<userLostPeople>? = null
+    var fileService: Api? = null
 
     @SuppressLint("WrongConstant")
     override fun onCreateView(
@@ -39,13 +41,15 @@ class LostPeople : Fragment() {
         myRecyclerLost = view.findViewById(R.id.recyclerLostPeople)
         myArrayListLost = ArrayList()
 
-        var retrofit = Retrofit.Builder()
-            .baseUrl("https://wecare5.000webhostapp.com/api/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+//        var retrofit = Retrofit.Builder()
+//            .baseUrl("https://wecare5.000webhostapp.com/api/")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//
+//        val apiInterface = retrofit.create(Api::class.java)
+        fileService =APIUtils.getFileService()
 
-        val apiInterface = retrofit.create(Api::class.java)
-        val call: Call<List<userLostPeople>> = apiInterface.getLostPeopleData()
+        val call: Call<List<userLostPeople>> = fileService!!.getLostPeopleData()
         call.enqueue(object : Callback<List<userLostPeople>> {
             override fun onResponse(
                 call: Call<List<userLostPeople>>,

@@ -63,6 +63,7 @@ class NavigationDrawer : AppCompatActivity() , NavigationView.OnNavigationItemSe
             fragment = Adoption()
         } else if (Itemid == R.id.connect_navi) {
             fragment = ContactUs()
+
         } else if (Itemid == R.id.donation_navi) {
             fragment = DonationRecycler()
         } else if (Itemid == R.id.about_navi) {
@@ -85,7 +86,7 @@ class NavigationDrawer : AppCompatActivity() , NavigationView.OnNavigationItemSe
 
 
         if (fragment != null) {
-            var transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+            val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment, fragment!!)
             transaction.commit()
         }

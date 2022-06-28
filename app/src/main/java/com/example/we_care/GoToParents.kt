@@ -8,6 +8,8 @@ import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,24 +23,25 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 
-class GoToParents : AppCompatActivity() {
+class GoToParents : AppCompatActivity(),TextWatcher {
     var binding: ActivityGoToParentsBinding? = null
     var fileService: Api? = null
     var imagePath: String? = null
+      var imageUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGoToParentsBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
+        binding!!.nameParents.addTextChangedListener(this)
+        binding!!.ageParents.addTextChangedListener(this)
+        binding!!.addressParents.addTextChangedListener(this)
+        binding!!.detailsParents.addTextChangedListener(this)
+        binding!!.photoParents.addTextChangedListener(this)
+
         fileService = APIUtils.getFileService()
 
-        binding!!.uploadParents.setOnClickListener {
-
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent, 0)
-            binding!!.photoParents.setText(imagePath)
-        }
 
         binding!!.savedata.setOnClickListener {
 
@@ -57,13 +60,14 @@ class GoToParents : AppCompatActivity() {
             val body = MultipartBody.Part.createFormData("file", file.name, requestBody)
             val gender = RequestBody.create(MultipartBody.FORM, parentDetail)
 
+
             val call: Call<ParentModel?>? = fileService!!.parent(name,age,address,body,gender)
             call?.enqueue(object : Callback<ParentModel?> {
                 override fun onResponse(call: Call<ParentModel?>, response: Response<ParentModel?>) {
                     if (response.isSuccessful) {
                         Toast.makeText(
                             this@GoToParents,
-                            "image upload successfully",
+                            "Data upload successfully",
                             Toast.LENGTH_LONG
                         ).show()
                         Log.v("Upload", "success")
@@ -84,6 +88,13 @@ class GoToParents : AppCompatActivity() {
 
 
         }
+        binding!!.uploadParents.setOnClickListener {
+
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, 0)
+
+        }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -94,8 +105,9 @@ class GoToParents : AppCompatActivity() {
                 return
 
             }
-            val imageUri = data.data
+             imageUri = data.data
             imagePath = getRealPathFromUri(imageUri!!)
+            binding!!.photoParents.text = imagePath.toString()
         }
     }
 
@@ -108,6 +120,22 @@ class GoToParents : AppCompatActivity() {
         var result: String = cursor.getString(column_idx)
         cursor.close()
         return result
+    }
+
+    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+    }
+
+    override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+        binding!!.savedata.isEnabled = binding!!.nameParents.text.trim().isNotBlank()
+                &&binding!!.ageParents.text.trim().isNotBlank()
+                &&binding!!.addressParents.text.trim().isNotBlank()
+                &&binding!!.detailsParents.text.trim().isNotBlank()
+                &&binding!!.photoParents.text.trim().isNotBlank()
+
+    }
+
+    override fun afterTextChanged(p0: Editable?) {
+
     }
 
 }

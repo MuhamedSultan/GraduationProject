@@ -37,7 +37,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_35sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:text="Ahmed Saad Ashraf"
             android:textColor="#000000"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold" />
@@ -67,7 +66,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_35sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:text="Sayeda Zeinab Street , Cairo."
             android:textColor="#000000"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold" />
@@ -98,7 +96,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_35sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:text="Sayeda Zeinab Street , Cairo."
             android:textColor="#000000"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold" />
@@ -129,7 +126,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_35sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:text="He wears a yellow T-shirt, he has a bodice on the front of his head."
             android:textColor="#000000"
             android:textSize="@dimen/_15sdp"
             android:textStyle="bold" />

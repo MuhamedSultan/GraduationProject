@@ -11,8 +11,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import api.APIUtils
 import com.example.we_care.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import models.Model
 import retrofit2.Call
@@ -28,6 +30,7 @@ class Login : AppCompatActivity() {
     var alertDialog: AlertDialog? = null
    private lateinit var email :String
    private lateinit var password: String
+    var fileService: Api? = null
 
     private val mAuth : FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
@@ -40,6 +43,9 @@ class Login : AppCompatActivity() {
         supportActionBar?.hide()
         createAccount()
         binding!!.onlogin.setOnClickListener {
+
+            loadingProgress()
+
             email = binding!!.edEmail.text.toString().trim()
             password = binding!!.edPassword.text.toString().trim()
 
@@ -61,19 +67,21 @@ class Login : AppCompatActivity() {
 
     private fun retrofit(email: String, password: String) {
 
-        loadingProgress()
 
-        var retrofit = Retrofit.Builder()
-            .baseUrl("https://wecare5.000webhostapp.com/api/")
-            // .baseUrl("http://we-care1.herokuapp.com/api/")
-            .addConverterFactory(GsonConverterFactory.create()).build()
+        //   loadingProgress()
+//
+//        var retrofit = Retrofit.Builder()
+//            .baseUrl("https://wecare5.000webhostapp.com/api/")
+//            // .baseUrl("http://we-care1.herokuapp.com/api/")
+//            .addConverterFactory(GsonConverterFactory.create()).build()
+//
+//        var apiInterface = retrofit.create(Api::class.java)
 
-        var apiInterface = retrofit.create(Api::class.java)
-
+        fileService= APIUtils.getFileService()
 
         var model = Model(null, email, password)
 
-        var call: Call<Model> = apiInterface.login(model)
+        var call: Call<Model> = fileService!!.login(model)
 
         call.enqueue(object : Callback<Model> {
             override fun onResponse(call: Call<Model>, response: Response<Model>) {
@@ -84,15 +92,16 @@ class Login : AppCompatActivity() {
                 val editor = sharedPreferences.edit()
                 editor.putString("userName", apiResponse?.name)
                 editor.putString("userEmail", apiResponse?.email)
-                editor.commit()
+                editor.apply()
 
                  if (apiResponse?.status_code == 200) {
 
-                    var intent = Intent(this@Login, NavigationDrawer::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                    startActivity(intent)
+//                    var intent = Intent(this@Login, NavigationDrawer::class.java)
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+//                    startActivity(intent)
+                     verifyEmail()
                 } else if (apiResponse?.status_code==500) {
-                     alertDialog?.dismiss()
+                     alertDialog?.hide()
                     Toast.makeText(this@Login, "Email or password is wrong.", Toast.LENGTH_LONG)
                         .show()
 
@@ -133,22 +142,32 @@ class Login : AppCompatActivity() {
 
     }
 
-    override fun onPause() {
-        super.onPause()
-        alertDialog?.dismiss()
-    }
+//    override fun onPause() {
+//        super.onPause()
+//        alertDialog?.dismiss()
+//    }
     private fun signIn(email: String, password: String) {
         loadingProgress()
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
             if (it.isSuccessful){
-                var intent =Intent(this,NavigationDrawer::class.java)
+                val intent = Intent(this,NavigationDrawer::class.java)
                 startActivity(intent)
             }else{
-                alertDialog?.dismiss()
+             //   alertDialog?.hide()
                 Toast.makeText(this,it.exception.toString(),Toast.LENGTH_LONG).show()
             }
         }
 
+    }
+    fun verifyEmail(){
+        val user: FirebaseUser? =FirebaseAuth.getInstance().currentUser
+        if (user!!.isEmailVerified){
+            val intent = Intent(this,NavigationDrawer::class.java)
+            startActivity(intent)
+        }else{
+          //  alertDialog!!.cancel()
+            Toast.makeText(this,"please verify Email Address",Toast.LENGTH_LONG).show()
+        }
     }
 }
 
