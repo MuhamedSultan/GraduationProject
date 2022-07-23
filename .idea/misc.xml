@@ -3,24 +3,51 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/drawable-v24/loginbtn.xml" value="0.2215" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/drawable-v24/progress.xml" value="0.2215" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/drawable-v24/signupbtn.xml" value="0.2215" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/drawable/about.xml" value="0.2215" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/drawable/image.xml" value="0.2235" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/drawable/radiosrecycler.xml" value="0.2215" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/drawable/search_edit_text.xml" value="0.2235" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_adoption2.xml" value="0.264" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_ay_haga.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_camera2.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_chat.xml" value="0.2125" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_chat_profile.xml" value="0.2125" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_chat_users.xml" value="0.2125" />
-        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_go_to_homeless.xml" value="0.21041666666666667" />
-        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_go_to_parents.xml" value="0.264" />
-        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_identify_get_data.xml" value="0.1766304347826087" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_donation.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_face_recognition.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_go_to_homeless.xml" value="0.1" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_go_to_parents.xml" value="0.1" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_identify_get_data.xml" value="0.2" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_login.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_main.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_navigition_drawer.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_post_data_not_recognizing.xml" value="0.2125" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_sign_up.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_about.xml" value="0.264" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_adoption.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_chat.xml" value="0.2125" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_connect_us.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_donation_recycler.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_events.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_home.xml" value="0.18206399278954483" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_lost_people.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_more.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_people.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_recognition_by_camera.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/fragment_second.xml" value="0.21041666666666667" />
-        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/heder.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/heder.xml" value="0.2" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/item_text_message.xml" value="0.21145833333333333" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/loading.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/recycler_view_item.xml" value="0.2125" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/recyclerdonition.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/recyclerevent.xml" value="0.4" />
         <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/layout/recyclerlostpeople.xml" value="0.1766304347826087" />
+        <entry key="..\:/Users/TURBO/AndroidStudioProjects/We_Care/app/src/main/res/menu/menu_navigation.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/TURBO/Hany/We_Care/app/src/main/res/drawable/background_chat_icons.xml" value="0.2235" />
         <entry key="..\:/Users/TURBO/Hany/We_Care/app/src/main/res/drawable/camera.xml" value="0.2235" />
         <entry key="..\:/Users/TURBO/Hany/We_Care/app/src/main/res/drawable/event.xml" value="0.2235" />

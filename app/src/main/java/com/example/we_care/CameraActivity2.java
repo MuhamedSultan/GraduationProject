@@ -94,29 +94,24 @@ public class CameraActivity2 extends Activity implements CameraBridgeViewBase.Cv
 //            e.printStackTrace();
 //        }
        // if (Face_recognition.Val!=null) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(8000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+            new Thread(() -> {
+                try {
+                    Thread.sleep(6000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 //                    if (!Face_recognition.Val.equals("")) {
 
-                        if (Face_recognition.Val.equals("random_person")) {
-                            Intent goToIdentify = new Intent(CameraActivity2.this, GoToHomeless.class);
-                            startActivity(goToIdentify);
-                            //  Toast.makeText(CameraActivity2.this, "Please Enter Homeless Data", Toast.LENGTH_SHORT).show();
-                            finish();
-                        } else {
-                            Intent goToIdentify = new Intent(CameraActivity2.this, IdentifyGetData.class);
-                            startActivity(goToIdentify);
-                            //     Toast.makeText(CameraActivity2.this, "Successful Recognition", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                   // }
-                }
+                    if (Face_recognition.Val.equals("random_person")) {
+                        Intent intent = new Intent(CameraActivity2.this, PostDataNotRecognizing.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Intent goToIdentify = new Intent(CameraActivity2.this, IdentifyGetData.class);
+                        startActivity(goToIdentify);
+                        finish();
+                    }
+               // }
             }).start();
      //   }
 

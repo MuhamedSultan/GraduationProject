@@ -24,20 +24,22 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/fina"
+        android:icon="@drawable/app_defualt_logo"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@drawable/fina"
+        android:roundIcon="@drawable/app_circle_logo"
         android:supportsRtl="false"
         android:theme="@style/Theme.We_Care"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".AyHaga"
+            android:exported="false" />
         <activity
             android:name="chat.ChatActivity"
             android:exported="false" />
         <activity
             android:name="chat.ChatProfile"
-            android:exported="false"
-             />
+            android:exported="false" />
         <activity
             android:name="chat.ChatUsers"
             android:exported="false" />

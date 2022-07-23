@@ -8,7 +8,6 @@ import storage.SharedPrefManager
 
 class Profile : AppCompatActivity() {
     var binding: ActivityProfileBinding?= null
-    lateinit var sharedPrefManager: SharedPrefManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,15 +49,16 @@ class Profile : AppCompatActivity() {
 //        binding!!.fullName.text = model.name
 
 
-        var sharedPreferences: SharedPreferences =
-            getSharedPreferences("userData", MODE_PRIVATE)
+        val sharedPreferences: SharedPreferences =
+            getSharedPreferences("DataOfUser", MODE_PRIVATE)
 
-        var userName = sharedPreferences.getString("userName", "Nothing")
-
-        var email = sharedPreferences.getString("userEmail", "Nothing")
+        val userName = sharedPreferences.getString("userName", "Nothing")
+        val email = sharedPreferences.getString("userEmail", "Nothing")
+        val phone = sharedPreferences.getString("userPhone", "Nothing")
 
         binding!!.username.text = userName
         binding!!.Email.text = email
         binding!!.fullName.text = userName
+        binding!!.phone.text=phone
     }
 }

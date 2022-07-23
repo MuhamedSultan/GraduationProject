@@ -32,7 +32,7 @@
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/_10sdp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/photoLost"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_40sdp"

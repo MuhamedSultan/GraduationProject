@@ -42,70 +42,71 @@ class Login : AppCompatActivity() {
         setContentView(binding!!.root)
         supportActionBar?.hide()
         createAccount()
+
         binding!!.onlogin.setOnClickListener {
 
             loadingProgress()
 
-            email = binding!!.edEmail.text.toString().trim()
-            password = binding!!.edPassword.text.toString().trim()
-
-            if (email.isEmpty() && password.isEmpty()) {
-
-                    alertDialog?.dismiss()
+            if (binding!!.edEmail.text.isNotEmpty() && binding!!.edPassword.text.isNotEmpty()) {
+                email = binding!!.edEmail.text.toString().trim()
+                password = binding!!.edPassword.text.toString().trim()
+                retrofit(email, password)
+                //  signIn(email, password)
+            } else {
+                alertDialog?.dismiss()
                 binding!!.edEmail.error = "Email Required"
                 binding!!.edEmail.requestFocus()
 
                 binding!!.edPassword.error = "password Required"
                 binding!!.edPassword.requestFocus()
-            } else {
 
-                retrofit(email, password)
-                signIn(email, password)
             }
         }
     }
 
     private fun retrofit(email: String, password: String) {
 
-
-        //   loadingProgress()
+         //  loadingProgress()
 //
-//        var retrofit = Retrofit.Builder()
-//            .baseUrl("https://wecare5.000webhostapp.com/api/")
-//            // .baseUrl("http://we-care1.herokuapp.com/api/")
-//            .addConverterFactory(GsonConverterFactory.create()).build()
 //
-//        var apiInterface = retrofit.create(Api::class.java)
-
         fileService= APIUtils.getFileService()
 
-        var model = Model(null, email, password)
+        val model = Model(null, email,null, password)
 
-        var call: Call<Model> = fileService!!.login(model)
+        val call: Call<Model> = fileService!!.login(model)
 
         call.enqueue(object : Callback<Model> {
             override fun onResponse(call: Call<Model>, response: Response<Model>) {
+                alertDialog?.dismiss()
 
-                var apiResponse: Model? = response.body()
+                val apiResponse: Model? = response.body()
 
-                val sharedPreferences = getSharedPreferences("userData", MODE_PRIVATE)
+                val sharedPreferences = getSharedPreferences("DataOfUser", MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
                 editor.putString("userName", apiResponse?.name)
                 editor.putString("userEmail", apiResponse?.email)
+                editor.putString("userPhone", apiResponse?.phone)
                 editor.apply()
 
-                 if (apiResponse?.status_code == 200) {
+                 if (apiResponse?.email == email) {
 
-//                    var intent = Intent(this@Login, NavigationDrawer::class.java)
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//                    startActivity(intent)
-                     verifyEmail()
-                } else if (apiResponse?.status_code==500) {
-                     alertDialog?.hide()
-                    Toast.makeText(this@Login, "Email or password is wrong.", Toast.LENGTH_LONG)
-                        .show()
+                    val intent = Intent(this@Login, NavigationDrawer::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    startActivity(intent)
+                 }else{
+                     Toast.makeText(this@Login, "Email or password is wrong....", Toast.LENGTH_LONG)
+                       .show()
+                 }
+               //      verifyEmail()
+              //  } else if (apiResponse?.status_code==500) {
 
-                }
+                 //   Toast.makeText(this@Login, "Email or password is wrong.", Toast.LENGTH_LONG)
+                      //  .show()
+
+//                }else{
+//                     Toast.makeText(this@Login, "error", Toast.LENGTH_LONG)
+//                         .show()
+//                 }
 
             }
             override fun onFailure(call: Call<Model>, t: Throwable) {
@@ -122,7 +123,7 @@ class Login : AppCompatActivity() {
         string.setSpan(span, 23, 33, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         val clickableSpan: ClickableSpan1 = object : android.text.style.ClickableSpan() {
             override fun onClick(view: View) {
-                var intent = Intent(this@Login, SignUp::class.java)
+                val intent = Intent(this@Login, SignUp::class.java)
                 startActivity(intent)
             }
         }
@@ -138,7 +139,7 @@ class Login : AppCompatActivity() {
         alertbuilder.setView(view)
         alertDialog = alertbuilder.create()
         alertDialog!!.show()
-      //  alertDialog!!.setCancelable(false)
+        alertDialog!!.setCancelable(false)
 
     }
 
@@ -147,11 +148,12 @@ class Login : AppCompatActivity() {
 //        alertDialog?.dismiss()
 //    }
     private fun signIn(email: String, password: String) {
-        loadingProgress()
+//        loadingProgress()
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
             if (it.isSuccessful){
                 val intent = Intent(this,NavigationDrawer::class.java)
                 startActivity(intent)
+                finish()
             }else{
              //   alertDialog?.hide()
                 Toast.makeText(this,it.exception.toString(),Toast.LENGTH_LONG).show()

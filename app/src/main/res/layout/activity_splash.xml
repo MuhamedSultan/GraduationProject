@@ -16,7 +16,7 @@
         android:layout_marginStart="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_150sdp"
         android:layout_marginEnd="@dimen/_30sdp"
-        android:src="@drawable/logo" />
+        android:src="@drawable/first_logo" />
 
     <ProgressBar
         android:id="@+id/progressBar1"

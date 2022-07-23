@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".GoToParents">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="#046169"
+        android:padding="@dimen/_9sdp"
+        android:text="New Entry"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold" />
 
 
     <ImageView
-        android:layout_width="@dimen/_130sdp"
-        android:layout_height="@dimen/_130sdp"
+        android:layout_width="206dp"
+        android:layout_height="157dp"
         android:layout_gravity="center"
-        android:src="@drawable/fina"
-         />
+        android:src="@drawable/app_circle_logo" />
 
     <EditText
         android:id="@+id/namePostData"
@@ -46,6 +58,20 @@
         />
 
     <EditText
+        android:id="@+id/phonePostData"
+        android:layout_width="@dimen/_290sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/customedt"
+        android:hint="Enter the phone"
+        android:inputType="number"
+        android:padding="@dimen/_8sdp"
+        android:textColorHint="#676565"
+        android:textSize="@dimen/_15sdp"
+        />
+
+    <EditText
         android:id="@+id/addressPostData"
         android:layout_width="@dimen/_290sdp"
         android:layout_height="@dimen/_40sdp"
@@ -65,7 +91,7 @@
     android:layout_gravity="center"
     android:orientation="horizontal">
 
-    <EditText
+    <TextView
         android:id="@+id/photoPostData"
         android:layout_width="@dimen/_220sdp"
         android:layout_height="@dimen/_40sdp"
@@ -100,7 +126,7 @@
 </LinearLayout>
 
     <EditText
-        android:id="@+id/detailsPostData"
+        android:id="@+id/genderPostData"
         android:layout_width="@dimen/_290sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="center"
@@ -126,3 +152,4 @@
         />
 
 </LinearLayout>
+</ScrollView>

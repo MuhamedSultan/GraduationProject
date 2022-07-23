@@ -1,6 +1,5 @@
 package com.example.we_care
 
-import api.Api
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -16,6 +15,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import api.APIUtils
+import api.Api
 import com.example.we_care.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -25,13 +25,12 @@ import models.Model
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class SignUp : AppCompatActivity(), TextWatcher {
     var binding: ActivitySignUpBinding? = null
     lateinit var username: String
     lateinit var email: String
+    lateinit var phoneNumber: String
     lateinit var password: String
     lateinit var confirmpassword: String
     var fileService: Api? = null
@@ -51,57 +50,44 @@ class SignUp : AppCompatActivity(), TextWatcher {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         supportActionBar?.hide()
-
-        binding!!.username.addTextChangedListener(this)
-        binding!!.Emailaddress.addTextChangedListener(this)
-        binding!!.password.addTextChangedListener(this)
+//
+//        binding!!.username.addTextChangedListener(this)
+//        binding!!.Emailaddress.addTextChangedListener(this)
+//        binding!!.phoneNumber.addTextChangedListener(this)
+//        binding!!.password.addTextChangedListener(this)
 
         binding!!.onsignup.setOnClickListener {
             username = binding!!.username.text.toString().trim()
             email = binding!!.Emailaddress.text.toString().trim()
+            phoneNumber = binding!!.phoneNumber.text.toString().trim()
             password = binding!!.password.text.toString().trim()
             confirmpassword = binding!!.confirmpassword.text.toString().trim()
 
-            loadingProgress()
-            retrofit(username, email, password)
-            createUserWithEmailAndPassword(username, email, password)
+            if (username.isEmpty() && email.isEmpty() && password.isEmpty() && phoneNumber.isEmpty()) {
+                valid()
+            } else {
+                loadingProgress()
+
+                retrofit(username, email, phoneNumber, password)
+              //  createUserWithEmailAndPassword(username, email, password)
+            }
         }
         loginNow()
     }
-//    override fun onStart() {
-//        super.onStart()
-//        if (SharedPrefManager.getInstance(this).isLoggedIn()){
-//            var intent = Intent(this, NavigitionDrawer::class.java)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//            startActivity(intent)
-//        }
-//    }
 
-    private fun retrofit(username: String, email: String, password: String) {
-//        var retrofit =
-//            Retrofit.Builder()
-//                .baseUrl("https://wecare5.000webhostapp.com/api/")
-//               // .baseUrl("https://grad-project3.000webhostapp.com/api/")
-//                //.baseUrl("http://we-care1.herokuapp.com/api/")
-//                .addConverterFactory(GsonConverterFactory.create()).build()
-//
-//        var apiInterface = retrofit.create(Api::class.java)
-        
-        fileService=APIUtils.getFileService()
-        val model = Model(username, email, password)
+    private fun retrofit(username: String, email: String,phoneNumber:String, password: String) {
+
+        fileService = APIUtils.getFileService()
+        val model = Model(username, email, phoneNumber, password)
 
         val call: Call<Model> = fileService!!.register(model)
         call.enqueue(object : Callback<Model> {
             override fun onResponse(call: Call<Model>, response: Response<Model>) {
-
+                alertDialog?.dismiss()
                 if (response.isSuccessful) {
-                    //Toast.makeText(this@SignUp,"fdg"+response.body()?.email,Toast.LENGTH_LONG).show()
-//                       Log.d("mmresponse"+response.body()?.name,"success")
 
                     alertDialog?.dismiss()
-                    if (username.isEmpty() && email.isEmpty() && password.isEmpty()) {
-                        valid()
-                    } else if (password != confirmpassword) {
+                      if (password != confirmpassword) {
                         binding!!.confirmpassword.error = "password doesn't match"
                         binding!!.confirmpassword.requestFocus()
                         alertDialog?.dismiss()
@@ -112,15 +98,17 @@ class SignUp : AppCompatActivity(), TextWatcher {
                         binding!!.password.error = "password 6 letters at least"
                         binding!!.password.requestFocus()
                     } else {
-                       sendVerification()
-//                        val intent = Intent(this@SignUp, Login::class.java)
-//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//                        startActivity(intent)
+                        //  sendVerification()
+                        val intent = Intent(this@SignUp, Login::class.java)
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        startActivity(intent)
+                        finish()
                     }
                 } else if (response.body()?.status_code == 500) {
+                    alertDialog?.dismiss()
                     binding!!.username.error = "username is used by another one"
                     binding!!.username.requestFocus()
-                    alertDialog?.dismiss()
+
 
                 }
 
@@ -168,6 +156,10 @@ class SignUp : AppCompatActivity(), TextWatcher {
             binding!!.confirmpassword.error = "confirm password required"
             binding!!.confirmpassword.requestFocus()
         }
+        if (phoneNumber.isEmpty()) {
+            binding!!.phoneNumber.error = "phoneNumber required"
+            binding!!.phoneNumber.requestFocus()
+        }
 
     }
 
@@ -184,9 +176,11 @@ class SignUp : AppCompatActivity(), TextWatcher {
 
     override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
-        binding!!.onsignup.isEnabled = binding!!.username.text.trim().isNotBlank()
-                && binding!!.Emailaddress.text.trim().isNotEmpty()
-                && binding!!.password.text.trim().isNotEmpty()
+//        binding!!.onsignup.isEnabled = binding!!.username.text.trim().isNotBlank()
+//                && binding!!.Emailaddress.text.trim().isNotEmpty()
+//                && binding!!.password.text.trim().isNotEmpty()
+//                && binding!!.confirmpassword.text.trim().isNotEmpty()
+//                && binding!!.phoneNumber.text.trim().isNotEmpty()
 
     }
 
@@ -196,32 +190,31 @@ class SignUp : AppCompatActivity(), TextWatcher {
     private fun createUserWithEmailAndPassword(name: String, Email: String, Password: String) {
         mAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener {
             if (it.isSuccessful) {
-                sendVerification()
+              //  sendVerification()
                 var newUser = chat.User(name, "")
                 currentUserDocRef.set(newUser)
 
-            }
-            else if (!it.isSuccessful) {
+            } else if (!it.isSuccessful) {
 
                 Toast.makeText(this, it.exception?.message, Toast.LENGTH_LONG).show()
 
             }
         }
     }
-    private fun sendVerification(){
-        val user:FirebaseUser?  = FirebaseAuth.getInstance().currentUser
+
+    private fun sendVerification() {
+        val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
         user?.reload()
-      user!!.sendEmailVerification().addOnCompleteListener {
-            if (it.isSuccessful){
-                Toast.makeText(this,"Verification Email Sent",Toast.LENGTH_LONG).show()
+        user!!.sendEmailVerification().addOnCompleteListener {
+            if (it.isSuccessful) {
+                Toast.makeText(this, "Verification Email Sent", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, Login::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(intent)
+            } else if (!it.isSuccessful) {
+                Toast.makeText(this, it.exception?.message, Toast.LENGTH_LONG).show()
             }
-            else if (!it.isSuccessful){
-                Toast.makeText(this,it.exception?.message,Toast.LENGTH_LONG).show()
-            }
-      }
+        }
     }
 }
 

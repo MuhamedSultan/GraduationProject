@@ -41,13 +41,8 @@ class Events : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         myArrayList = ArrayList()
 
-//        var retrofit = Retrofit.Builder()
-//            .baseUrl("https://wecare5.000webhostapp.com/api/")
-//            .addConverterFactory(GsonConverterFactory.create()).build()
-//        var apiInterface = retrofit.create(Api::class.java)
         fileservice=APIUtils.getFileService()
         var call: Call<List<User>> = fileservice!!.event()
         call.enqueue(
@@ -56,7 +51,10 @@ class Events : Fragment() {
                     call: Call<List<User>>,
                     response: Response<List<User>>
                 ) {
-                    showData(response.body()!!)
+                    response.body()?.let {
+                        showData(it)
+                    }?:Toast.makeText(requireContext(), "No Data To Show", Toast.LENGTH_LONG).show()
+
 //                val customAdapter = CustomAdapter(myArrayList!!)
 //                Mrecycler.adapter = customAdapter
 
@@ -64,7 +62,7 @@ class Events : Fragment() {
                 }
 
                 override fun onFailure(call: Call<List<User>>, t: Throwable) {
-                    Toast.makeText(requireActivity(), t.message.toString(), Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), t.message.toString(), Toast.LENGTH_LONG).show()
                     //  binding!!.textView.setText(t.message.toString())
 
                 }

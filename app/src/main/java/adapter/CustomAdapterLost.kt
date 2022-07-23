@@ -33,12 +33,8 @@ class CustomAdapterLost(var context: Context,var mylistLost: List<userLostPeople
         p0.textDetailsLost.text = infUserLost.details
 
         Glide.with(context)
-            .load(infUserLost.userPhotoLost)
+            .load(infUserLost.image)
             .into(p0.image)
-
-
-//  p0.userPhotoLosttt.setImageResource (infUserLost.userPhotoLost)
-// val userPhotoLosttt = itemView.findViewById (R.id.photoLost) as ImageView
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -47,7 +43,7 @@ class CustomAdapterLost(var context: Context,var mylistLost: List<userLostPeople
         val textAgeLost = itemView.findViewById(R.id.ageLost) as TextView
         val textAddressLost = itemView.findViewById(R.id.addressLost) as TextView
         val textDetailsLost = itemView.findViewById(R.id.detailsLost) as TextView
-        val image =itemView.findViewById<ImageView>(R.id.photoLost)
+        val image = itemView.findViewById<ImageView>(R.id.photoLost)!!
 
     }
 }

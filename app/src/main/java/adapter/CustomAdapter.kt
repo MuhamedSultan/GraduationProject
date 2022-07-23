@@ -4,11 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.we_care.R
+import com.google.rpc.context.AttributeContext
 import models.User
 
 
@@ -44,11 +47,14 @@ class CustomAdapter :
         p0.date.text = infUser.event_day
 
         Glide.with(mcontext)
-            .load("https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg/1200px-Scarlett_Johansson_by_Gage_Skidmore_2_%28cropped%29.jpg")
+            .load(infUser.instructor_img)
             .placeholder(R.drawable.person_icon)
             .error(R.drawable.img)
             .into(p0.userPhoto)
 
+        p0.presence.setOnClickListener {
+            Toast.makeText(mcontext,"Your request is under review",Toast.LENGTH_LONG).show()
+        }
         // p0.userPhoto.setImageResource(infUser.instructor_img)
     }
 
@@ -62,6 +68,7 @@ class CustomAdapter :
         val phoneNumber = itemView.findViewById(R.id.phoneNumber) as TextView
         val date = itemView.findViewById(R.id.date) as TextView
         val userPhoto = itemView.findViewById(R.id.photo) as ImageView
+        val presence = itemView.findViewById(R.id.presence) as Button
 
 
 

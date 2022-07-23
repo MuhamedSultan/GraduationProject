@@ -4,17 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#C8BEBE"
+    android:background="@color/white"
     tools:context="fragment.Adoption2">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:background="#6E1414"
+        android:background="#046169"
         android:padding="@dimen/_9sdp"
         android:text="Sponsor an Orphan"
+        android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="@dimen/_15sdp"
@@ -22,10 +22,7 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_30sdp"
-
-        android:background="@drawable/costemcard"
-            android:orientation="vertical">
+        android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -43,6 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:text="1-Documents required for the Directorate of Social Solidarity."
                 android:textColor="@color/black"
@@ -54,15 +52,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_15sdp"
-                android:text="🔴 family affiliation.
-\n🔴 Fish and an analogy for the spouses or the mother if she is not married.
-\n🔴 Graduation certificate photos.
-\n🔴 A letter from the employer, or proof of monthly income.
-\n🔴 Hepatitis C and drug analysis.
-\n🔴 psychological reveal .
-\n🔴 A lease or ownership agreement for an apartment.
-\n🔴 Pictures of the national ID.
-\n🔴 marriage document."
+                android:text=" 🔵 family affiliation.
+\n \n 🔵 Fish and an analogy for the spouses or the mother if she is not married.
+\n \n 🔵 Graduation certificate photos.
+\n \n 🔵 A letter from the employer, or proof of monthly income.
+\n \n 🔵 Hepatitis C and drug analysis.
+\n \n 🔵 psychological reveal .
+\n \n 🔵 A lease or ownership agreement for an apartment.
+\n \n 🔵 Pictures of the national ID.
+\n \n 🔵 marriage document."
                 android:textColor="@color/black"
                 android:textSize="@dimen/_10sdp" />
 
@@ -72,7 +70,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:text="___________________________________________________"
-                android:textColor="#B52525"
+                android:textColor="#046169
+"
                 android:textSize="@dimen/_11sdp"
                 android:textStyle="bold" />
 
@@ -107,7 +106,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:text="___________________________________________________"
-                android:textColor="#B52525"
+                android:textColor="#046169"
                 android:textSize="@dimen/_11sdp"
                 android:textStyle="bold" />
 
@@ -142,7 +141,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:text="___________________________________________________"
-                android:textColor="#B52525"
+                android:textColor="#046169"
                 android:textSize="@dimen/_11sdp"
                 android:textStyle="bold" />
 
@@ -181,9 +180,18 @@ A recent health certificate proving that the applicants are free of C.B virus.\n
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:text="___________________________________________________"
-                android:textColor="#B52525"
+                android:textColor="#046169"
                 android:textSize="@dimen/_11sdp"
                 android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_green"
+                android:text="Accept" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

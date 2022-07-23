@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#C8BEBE"
+    android:background="#E4E4E4"
     tools:context="fragment.Home">
 
     <ImageView
@@ -83,7 +88,118 @@
             android:layout_marginTop="@dimen/_50sdp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt at labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet"
             android:textColor="@color/black"
-            android:textSize="@dimen/_12sdp"
-            />
+            android:textSize="@dimen/_12sdp" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_310sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:src="@drawable/ad" />
+
+    <TextView
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:text="Adoption"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+
+    <TextView
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="We also know that adoption has become legal for a long time , and so there are many orphanages that are full of children . On the other hand , there are many parents who have not had children for various reasons , and of course they wish the opposite , so we established the adoption part which will help them know the required procedures To complete the adoption process and direct them to the relevant authorities to obtain approval , and after making sure that they have the required approval , we will allow them to choose the orphanage near them and display the children's data inside it , as well as open a way of commu nication between them and the orphanage to complete the adoption process."
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        />
+
+
+
+    <ImageView
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:src="@drawable/donate"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:text="Donations"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+
+    <TextView
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="Many orphanages do not receive the attention and the required share of donations from the general public and charitable societies to keep pace with their work in caring for orphans and providing them with a decent social life , so here we have established a link between them and the general public and safe payment methods to receive donations through it , all they have to do is Advertise what they want and people will fulfill it."
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        />
+
+
+    <ImageView
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_220sdp"
+        android:src="@drawable/e"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:text="Events"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+
+    <TextView
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="There are a lot of orphanages in the world , but most people do not know anything about them , events and entertainment they organize , as well as telling them directly , but they hardly know about its existence , so we created a section for events , through which the user will be able to browse the news of a care home Orphans and see what they organize of various activities and interact with them."
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        />
+
+
+    <ImageView
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_190sdp"
+        android:src="@drawable/r"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:text="Recognition"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp" />
+
+    <TextView
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="This section was established specifically to eliminate a dangerous social phenomenon , namely , street children ( homeless ) , and to bring them to orphanages to provide them with a humane life , and also to solve the problem of missing children and help deliver them to their fami lies as soon as possible so that they do not turn into street children later , and we did this through Creating a facial recognition algorithm that enables parents to upload pictures of their children with data , and in the event that a child is lost and found by a stranger , the person who found him will be able to photograph him and immediately be identified and notify the parents , and also by conducting a survey by the general public , when they see a homeless person By photographing it and uploading its picture , and at that time , they are sent to orphanages in the area to care him."
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        />
     </LinearLayout>
+</ScrollView>

@@ -3,6 +3,8 @@ package com.example.we_care
 import adapter.CustomAdapterLost
 import api.Api
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import api.APIUtils
+import chat.ChatActivity
 import models.userLostPeople
 import retrofit2.Call
 import retrofit2.Callback
@@ -59,15 +62,20 @@ class LostPeople : Fragment() {
 
             }
             override fun onFailure(call: Call<List<userLostPeople>>, t: Throwable) {
-                Toast.makeText(requireContext(), t.message.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(context, t.message.toString(), Toast.LENGTH_LONG).show()
             }
 
         })
     }
+
     private fun showData(myArrayListLost: List<userLostPeople>) {
 
         myRecyclerLost?.layoutManager = LinearLayoutManager(context)
         myRecyclerLost?.adapter = CustomAdapterLost(requireContext(),myArrayListLost)
         myRecyclerLost?.layoutManager = GridLayoutManager(context, 1)
     }
+
+//    override fun onAttach(activity: Activity) {
+//        super.onAttach(activity)
+//    }
 }
