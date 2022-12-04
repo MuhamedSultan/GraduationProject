@@ -31,9 +31,7 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.We_Care"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".AyHaga"
-            android:exported="false" />
+
         <activity
             android:name="chat.ChatActivity"
             android:exported="false" />

@@ -38,14 +38,6 @@ class GoToParents : AppCompatActivity() {
         binding = ActivityGoToParentsBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
-//        binding!!.nameParents.addTextChangedListener(this)
-//        binding!!.ageParents.addTextChangedListener(this)
-//        binding!!.phoneParent.addTextChangedListener(this)
-//        binding!!.addressParents.addTextChangedListener(this)
-//        binding!!.genderParents.addTextChangedListener(this)
-//        binding!!.photoParents.addTextChangedListener(this)
-
-
         binding!!.savedata.setOnClickListener {
 
             parentName = binding!!.nameParents.text.toString().trim()
@@ -59,16 +51,16 @@ class GoToParents : AppCompatActivity() {
                 && parentGender.isNotEmpty()
             ) {
 
-                val file = File(imagePath)
+                val file = imagePath?.let { it1 -> File(it1) }
                 val requestBody: RequestBody =
-                    RequestBody.create(MediaType.parse("multipart/form-file"), file)
+                    RequestBody.create(MediaType.parse("multipart/form-file"), file!!)
 
 
                 val name = RequestBody.create(MultipartBody.FORM, parentName)
                 val age = RequestBody.create(MultipartBody.FORM, parentage)
                 val phone = RequestBody.create(MultipartBody.FORM, parentPhone)
                 val address = RequestBody.create(MultipartBody.FORM, parentAddress)
-                val body = MultipartBody.Part.createFormData("file", file.name, requestBody)
+                val body = MultipartBody.Part.createFormData("image", file.name, requestBody)
                 val gender = RequestBody.create(MultipartBody.FORM, parentGender)
 
                 fileService = APIUtils.getFileService()
@@ -93,7 +85,7 @@ class GoToParents : AppCompatActivity() {
                             binding!!.addressParents.text.clear()
                             binding!!.photoParents.text = ""
                             binding!!.genderParents.text.clear()
-                            Log.v("Upload", "success")
+                            Log.v("Upload", response.body().toString())
                         } else {
                             Toast.makeText(
                                 this@GoToParents,

@@ -14,5 +14,6 @@
         android:id="@+id/recyclerLostPeople"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#C8BEBE" />
+        android:background="#C8BEBE"
+        android:layout_margin="@dimen/_10sdp"/>
 </LinearLayout>

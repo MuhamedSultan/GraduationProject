@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f8f8f8"
+        android:orientation="vertical"
+        tools:context=".GoToParents">
+
+
+        <ImageView
+            android:id="@+id/identifyImage"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/person_icon" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="493dp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:background="@drawable/costemcard"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:text="Name:"
+                    android:textColor="#A3A0A0"
+                    android:textSize="@dimen/_15sdp" />
+
+                <EditText
+                    android:id="@+id/namePostData"
+                    android:layout_width="285dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="___________________________________________________"
+                    android:textColor="#046169"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Button" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Age:"
+                    android:textColor="#A3A0A0"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:id="@+id/agePostData"
+                    android:layout_width="@dimen/_285sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="___________________________________________________"
+                    android:textColor="#046169"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="phone:"
+                    android:textColor="#A3A0A0"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:id="@+id/phonePostData"
+                    android:layout_width="@dimen/_285sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="___________________________________________________"
+                    android:textColor="#046169"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Address :"
+                    android:textColor="#A3A0A0"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:id="@+id/addressPostData"
+                    android:layout_width="@dimen/_285sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="___________________________________________________"
+                    android:textColor="#046169"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Gender:"
+                    android:textColor="#A3A0A0"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:id="@+id/detailsPostData"
+                    android:layout_width="@dimen/_285sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</ScrollView>

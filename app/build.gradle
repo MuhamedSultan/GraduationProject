@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-   id 'kotlin-android-extensions'
+    id 'kotlin-android-extensions'
 
 }
  android {
@@ -119,6 +119,7 @@ dependencies {
 //    implementation "com.github.lisawray.groupie:groupie-viewbinding:"
 
     //groupie
+
     implementation 'com.xwray:groupie:2.1.0'
     implementation 'com.xwray:groupie-kotlin-android-extensions:2.0.3'
 }
